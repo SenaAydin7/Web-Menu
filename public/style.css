@@ -1,0 +1,253 @@
+*{
+  font-family: "Cinzel", serif;
+}
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 900
+
+.playfair-display{
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+.cinzel {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.container{
+  width: 70%;
+  justify-content: center;
+  text-align:center;
+  color: #575757;
+}
+
+.card{
+  box-shadow: 0 3px 1px -2px rgb(0 0 0 / 16%), 0 2px 2px 0 rgb(0 0 0 / 11%), 0 1px 5px 0 rgb(0 0 0 / 10%);
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-content{
+  text-align: center;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-text{
+  font-size: 12px;
+}
+
+.starter-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: white;
+   
+
+}
+
+.starter-container > img{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    padding-right: 30px;
+}
+
+.navbar{
+    height: 20%;
+    color:  #d5aaaa;
+    justify-content: center;
+}
+
+.navbar-light .navbar-brand:hover {
+    color:  #d5aaaa;
+}
+
+.header {
+  margin-left: 45%;
+
+}
+
+.menuicon{
+    color:  #d5aaaa;
+}
+
+.menuicon:hover{
+    color:  #d5aaaa;
+    text-decoration:none;
+
+}
+
+.sidenav a.instagram{
+  font-size: 15px;
+  text-wrap: nowrap;
+}
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(213, 170, 170, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .sidenav a {
+    padding: 10px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 400;
+    color: #575757;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidenav .sidenav-items{
+    margin-top: 60px;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+    text-decoration:none;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 3px;
+    font-size: 35px;
+    margin-left: 45px;
+    margin-top: 3px;
+  }
+
+.sidenav-buttom{
+  margin-top:430px;
+  color: #575757;
+  text-wrap: nowrap;
+  justify-content: center;
+  text-align:center;
+  position:relative;
+}
+
+
+.carousel {
+  background: transparent;
+  width:70%;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.carousel-cell {
+  width: 30%;
+  height: 50px;
+  margin-right: 5px;
+  background: #d5aaaa;
+  color: white;
+  border:none;
+  border-radius: 7px;
+  counter-increment: gallery-cell;
+  box-shadow: 0 3px 1px -2px rgb(0 0 0 / 16%), 0 2px 2px 0 rgb(0 0 0 / 11%), 0 1px 5px 0 rgb(0 0 0 / 10%);
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  line-height: 20px;
+  font-size: 30px;
+  
+}
+
+
+.about-container, .contact-container{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items:center;
+}
+
+.about, .contact{
+  width:500px;
+  text-align:left;
+}
+
+
+
+
+.footer-container{
+  background-color: #d5aaaa;
+  color:  #575757;
+  padding-left: 30px;
+  padding-right:30px;
+}
+
+.border-bottom{
+  width: 100%;
+  border-bottom: 1px solid #575757;
+}
+
+.footer-container .instagram, .contact-container .instagram{
+  font-size: 25px;
+  color: #575757;
+}
+.footer-container .instagram:hover{
+  color: #ffffff;
+  text-decoration:none;
+
+}
+.contact-container .instagram:hover,.contact-container .link:hover{
+  color: #d5aaaa;
+  text-decoration:none;
+}
+
+.link{
+  color: #575757;
+  text-decoration:none;
+}
+.link:hover{
+  color: #ffffff;
+  text-decoration:none;
+}
+
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  @media screen and (min-width:600px) and (max-width: 748px){
+    .header{
+      margin-left: 35%;
+    }
+
+  }
+  @media screen and (min-width:748px) and (max-width: 1024px){
+    .header{
+      margin-left: 40%;
+    }
+
+  }
+  @media screen and (max-width:600px){
+    .header{
+      margin-left: 30%;
+    }
+
+  }
+
