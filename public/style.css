@@ -1,6 +1,16 @@
 *{
   font-family: "Cinzel", serif;
 }
+
+.imageShow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myImg{
+  display: block;
+  margin: auto;
+}
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 400 to 900
 
@@ -71,7 +81,7 @@
 }
 
 .navbar-light .navbar-brand:hover {
-    color:  #d5aaaa;
+    color:  #ddbbbb; //#d5aaaa;
 }
 
 .header {
@@ -80,11 +90,11 @@
 }
 
 .menuicon{
-    color:  #d5aaaa;
+    color:  #ddbbbb; //#d5aaaa;
 }
 
 .menuicon:hover{
-    color:  #d5aaaa;
+    color: #ddbbbb; //#d5aaaa;
     text-decoration:none;
 
 }
@@ -102,7 +112,7 @@
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: rgb(213, 170, 170, 0.9);
+    background-color: rgb(221, 187, 187, 0.9); 
     overflow-x: hidden;
     transition: 0.5s;
   }
@@ -135,13 +145,14 @@
     margin-top: 3px;
   }
 
-.sidenav-buttom{
-  margin-top:430px;
+.sidenav-bottom{
   color: #575757;
   text-wrap: nowrap;
-  justify-content: center;
+  overflow: hidden;
   text-align:center;
-  position:relative;
+  position: inherit;
+  bottom: 0;
+  padding-left: 50px;
 }
 
 
@@ -157,12 +168,15 @@
   width: 30%;
   height: 50px;
   margin-right: 5px;
-  background: #d5aaaa;
+  background: #ddbbbb ; //#d5aaaa;
   color: white;
   border:none;
-  border-radius: 7px;
+  border-radius: 9px;
   counter-increment: gallery-cell;
   box-shadow: 0 3px 1px -2px rgb(0 0 0 / 16%), 0 2px 2px 0 rgb(0 0 0 / 11%), 0 1px 5px 0 rgb(0 0 0 / 10%);
+
+  //inset 0px 0px 4px 0px rgb(0 0 0 / 16%), inset 0px 0px 0px 0px rgb(0 0 0 / 11%), inset 0px -5px 9px 0px rgb(0 0 0 / 10%);
+
 }
 
 /* cell number */
@@ -171,11 +185,14 @@
   text-align: center;
   line-height: 20px;
   font-size: 30px;
-  
+}
+
+.carousel-cell{
+  font-size: initial;
 }
 
 
-.about-container, .contact-container{
+.about-container, .contact-container, .order-container{
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -183,16 +200,33 @@
   align-items:center;
 }
 
-.about, .contact{
+.about, .contact, .order{
   width:500px;
   text-align:left;
 }
 
+.about-container{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items:center;
+}
+
+.about-img{
+  width: 350px;
+}
+
+
+.img-size{
+  width: 50%;
+  height: 130px;
+}
 
 
 
 .footer-container{
-  background-color: #d5aaaa;
+  background-color: #ddbbbb; //#d5aaaa;
   color:  #575757;
   padding-left: 30px;
   padding-right:30px;
@@ -213,7 +247,7 @@
 
 }
 .contact-container .instagram:hover,.contact-container .link:hover{
-  color: #d5aaaa;
+  color: #ddbbbb; //#d5aaaa;
   text-decoration:none;
 }
 
@@ -238,16 +272,48 @@
     }
 
   }
+
   @media screen and (min-width:748px) and (max-width: 1024px){
     .header{
       margin-left: 40%;
     }
-
   }
+  @media screen and(min-width: 1024px){
+    .img-size{
+      height: 180px;
+    }
+    
+  }
+
   @media screen and (max-width:600px){
     .header{
       margin-left: 30%;
     }
 
+    .about-img{
+      width: 80%;
+    }
+
+    iframe{
+      width: 100%;
+    }
+  }
+  @media screen and (max-width:460px){
+    .header{
+      margin-left: 25%;
+    }
+
+    .img-size{
+      width: 100%;
+      height: 130px;
+    }
+
+    .card-p{
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .card-title{
+      font-size: 0.8rem;
+    }
   }
 

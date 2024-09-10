@@ -1,0 +1,65 @@
+Tatlılar
+Babannemin Pastasi	110.00 ₺
+Cornet	70.00 ₺
+Japonnaise	85.00 ₺
+Cinnabon	83.00 ₺
+Cikolatali Cinnabon	95.00 ₺
+Panna Cotta	90.00 ₺
+Donut	65.00 ₺
+Lotus Donut	85.00 ₺
+Berliner	65.00 ₺
+Schoggi Berliner	70.00 ₺
+Swiss Rolls	85.00 ₺
+Dänisch	95.00 ₺
+Giotto	95.00 ₺
+Zeynep's Cake	75.00 ₺
+St. Sebastian	85.00 ₺
+Zemu Cremeschnitt	105.00 ₺
+Ofen Berliner	30.00 ₺
+Kremah Kruvasan	110.00 ₺
+Linzer Nutella	83.00 ₺
+Schokoladenkuchen	85.00 ₺
+Brownie	110.00 ₺
+Apfelwaehe	85.00 ₺
+Pastel de Nata	55.00 ₺
+Trramisu	95.00 ₺
+Tarte su chocolat	90.00 ₺
+Nutellal Cheese cake	110.00 ₺
+Limonlu Cheesecake	110.00 ₺
+Himbeer Cheesecake	110.00 ₺
+Karamel Chee secake	40.00 ₺
+Orman Meyueli Cheesecake	140.00 ₺
+Cookies Cheese cake Me. Vities Cheesecake	120.00 ₺
+	129.00 ₺
+
+Kahvalt Tabaq	200.00 ₺
+(Gipfel) Kruvasan	40.00 ₺
+Crkolatal Kruvasan	60.00 ₺
+Bretzel	20.00 ₺
+Zopfbrot	15.00 ₺
+Knusperle	10.00 ₺
+Calzone	30.00 ₺
+Laugen Brötli	10.00 ₺
+Knoblauchbrot Paket	65.00 ₺
+Knoblauchbrot	100.00 ₺
+Ton Balkli Sandwich	85.00 ₺
+Tamboaday Sandwich	80.00 ₺
+Laugen Sandwich	80.00₺
+Kruvasan Sandwich	80.00 ₺
+El yapim Gilek Regeli	60.00 ₺
+Isecekler	
+Cay	20.00 ₺
+Filtre Kahve	70.00 ₺
+Cappucino	75.00 ₺
+Latte	80.00 ₺
+Espresso	65.00 ₺
+Tork Kahvesi	60.00 ₺
+Flat White	70.00 ₺
+Bitki Caye	65.00 ₺
+Sutto Kahve	70.00 ₺
+Meyue Suyu	50.00 ₺
+Soda	40.00 ₺
+Chur chill	50.00 ₺
+รับ	20.00 ₺
+El yapimi Hibiskus	70.00 ₺
+El capime Limonata	70.00 ₺

@@ -1,15 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>WEBMENU</title>
-</head>
-<body>
-    <div class="starter-container">
-    <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/ec/24/c2/zemu-swiss-bakery.jpg" alt="">
-</div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<body onload="show();">
+    <div id="imageShow" class="imageShow">
+    <img class="myImg" src="/img/zemu-swiss-bakery.jpg" alt="img">
+    </div>
+    <div id="content" style="display: none;">
+        
+        <%-include("index.ejs")%>
+        
+    </div> 
+    <script>
+        function show() {
+    document.getElementById("imageShow").style.display="block";
+    setTimeout("hide()", 3500); // 5 wait, change the delay here
+}
+    
+function hide() {
+    document.getElementById("imageShow").style.display="none";
+    document.getElementById("content").style.display="block";
+}
+
+    </script>
 </body>
-</html>
+
+    
+    
+
+
