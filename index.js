@@ -1,23 +1,30 @@
 import express from "express"
-import bodyParser from "body-parser"
+//import bodyParser from "body-parser"
 import pg from "pg";
+import dotenv from "dotenv";
+dotenv.config();
+
+
 
 const db = new pg.Client({
-  user: process.env.PG_USER,
-  host: process.env.PG_HOST,
-  database: process.env.PG_DATABASE,
-  password: process.env.PG_PASSWORD,
-  port: process.env.PG_PORT,
-})
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+});
 
 db.connect();
+
  
 const app = express();
 const port = 3000;
 
 app.use(express.static("public"));
-
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 
 let products = [];
@@ -33,7 +40,7 @@ app.get("/", async(req,res) => {
     const data = await db.query("SELECT category_name FROM category WHERE id = 1");
     category = data.rows;
 
-    res.render("menu.ejs",{products: products,category: category});
+    res.render("menu1.ejs",{products: products,category: category});
   }catch (err) {
     console.log(err);
   }
@@ -81,7 +88,8 @@ app.get("/contact",(req,res) => {
 
 })*/
 
-app.post("/", async (req,res) => {
+//calisan kod
+/*app.post("/", async (req,res) => {
     
   categoryId = parseInt(req.body.choice);
 
@@ -103,6 +111,59 @@ app.post("/", async (req,res) => {
     console.log(err);
   }
   
+});*/
+
+app.get("/api/products/:categoryId", async (req, res) => {
+  const categoryId = parseInt(req.params.categoryId);
+
+  try {
+      const productsQuery = await db.query(
+          "SELECT * FROM products WHERE category_id = $1", 
+          [categoryId]
+      );
+
+      const categoryQuery = await db.query(
+          "SELECT category_name FROM category WHERE id = $1", 
+          [categoryId]
+      );
+
+      res.json({
+          category_name: categoryQuery.rows.length ? categoryQuery.rows[0].category_name : "Kategori Bulunamadı",
+          products: productsQuery.rows
+      });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: "Database error" });
+  }
+});
+
+app.post("/selectCategory", async (req, res) => {
+  //console.log("Gelen Veri:", req.body); // POST isteğinden gelen veriyi kontrol et
+  const categoryId = parseInt(req.body.choice);
+
+  if (isNaN(categoryId)) {
+      return res.status(400).json({ error: "Geçersiz kategori ID" });
+  }
+
+  try {
+      const productsQuery = await db.query(
+          "SELECT * FROM products WHERE category_id = $1",
+          [categoryId]
+      );
+
+      const categoryQuery = await db.query(
+          "SELECT category_name FROM category WHERE id = $1",
+          [categoryId]
+      );
+
+      res.render("menu1.ejs", {
+          category: categoryQuery.rows,
+          products: productsQuery.rows
+      });
+  } catch (err) {
+      console.error("Veritabanı hatası:", err);
+      res.status(500).json({ error: "Database error" });
+  }
 });
 
 app.listen(port, () => {

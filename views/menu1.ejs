@@ -1,0 +1,112 @@
+<%-include("header.ejs")%>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Kategori Butonları -->
+    <div id="productContainer" class="container my-4 carousel" data-flickity='{ "cellAlign": "left", "wrapAround": true, "freeScroll": true, "prevNextButtons": false, "pageDots": false }'>
+        <button class="carousel-cell category-btn" value="9" data-id="9">Kahvaltı</button>
+        <button class="carousel-cell category-btn" value="8" data-id="8">Tuzlu</button>
+        <button class="carousel-cell category-btn" value="6" data-id="6">Kruvasan</button>
+        <button class="carousel-cell category-btn" value="10" data-id="10">Sandviç</button>
+        <button class="carousel-cell category-btn" value="1" data-id="1">Tatlı</button>
+        <button class="carousel-cell category-btn" value="2" data-id="2">Pasta</button>
+        <button class="carousel-cell category-btn" value="3" data-id="3">Kek</button>
+        <button class="carousel-cell category-btn" value="7" data-id="7">Cheesecake</button>
+        <button class="carousel-cell category-btn" value="4" data-id="4">Donut</button>
+        <button class="carousel-cell category-btn" value="5" data-id="5">Berliner</button>
+        <button class="carousel-cell category-btn" value="12" data-id="12">Kurabiye</button>
+        <button class="carousel-cell category-btn" value="11" data-id="11">İçecek</button>
+    </div>
+
+    
+    <!-- Dinamik Ürün Listesi -->
+    
+    <div id="productList" class="container">
+    
+        <% category.forEach(category => { %>
+                <h3 id="categoryTitle" style="color: #ddbbbb;"><%= category.category_name%></h3>
+        <%}); %>
+    
+        <% products.forEach(product => { %>
+            <div class="card card-outline-secondary my-3 p-3">
+            <div class="card-content d-flex align-items-center ">
+                <div class="col-6 py-3">
+                    <h5 class="card-title"><%= product.product_name%></h5>
+                    <p class="card-text"><%= product.product_description%></p>
+                    <p class="text-muted"><%= product.price%></p>
+                </div>
+                <div class="col-6">
+                    <img class="img-size" src="/img/zemu-swiss-bakery.jpg" alt="...">
+                </div>
+            </div>
+            </div>
+        <% }); %>
+        
+        
+    </div>
+    
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".category-btn").click(function (event) {
+                event.preventDefault(); // Sayfanın yenilenmesini engelle
+                
+                let categoryId = $(this).data("id");
+
+                $.ajax({
+                    url: `/api/products/${categoryId}`,
+                    type: "GET",
+                    success: function (data) {
+                        $("#productList").html(""); // Önceki ürünleri temizle
+
+                        if (data.category_name) {
+                            $("#productList").append(`
+                                <h3 id="categoryTitle" style="color: #ddbbbb;">${data.category_name}</h3>
+                            `);
+                        }
+
+                        data.products.forEach(product => {
+                            $("#productList").append(`
+                                <div class="card card-outline-secondary my-3 p-3">
+                            <div class="card-content d-flex align-items-center">
+                                <div class="col-6 py-3">
+                                    <h5 class="card-title">${product.product_name}</h5>
+                                    <p class="card-text">${product.product_description}</p>
+                                    <p class="text-muted">${product.price}</p>
+                                </div>
+                                <div class="col-6">
+                                    <img class="img-size" src="/img/zemu-swiss-bakery.jpg" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                            `);
+                        });
+                    },
+                    error: function () {
+                        alert("Veriler yüklenirken hata oluştu.");
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $(".carousel-cell").click(function (e) {
+                e.preventDefault(); // Sayfanın yenilenmesini engelle
+
+                var categoryId = $(this).val(); // Butona tıklanan kategori ID'sini al
+                //console.log("Gönderilen Kategori ID:", categoryId); // Kontrol için
+
+                $.ajax({
+                    type: "POST",
+                    url: "/selectCategory",
+                    data: { choice: categoryId }, // JSON formatı kullanma
+                });
+            });
+        });
+
+        
+    </script>
+
+    <%-include("footer.ejs")%>
